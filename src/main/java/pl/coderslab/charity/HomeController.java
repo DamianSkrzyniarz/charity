@@ -23,8 +23,8 @@ public class HomeController {
     @RequestMapping("/")
     public String homeAction(Model model){
         model.addAttribute("institutions", institutionRepository.findAll());
-
-//        model.addAttribute("numberOfDonations", donationRepository.count());
+        model.addAttribute("numberOfInstitutions", donationRepository.countDistinctInstitutions());
+        //only institutions that received at least one donation
         model.addAttribute("numberOfDonations", donationRepository.sumQuantity());
         return "index";
     }
