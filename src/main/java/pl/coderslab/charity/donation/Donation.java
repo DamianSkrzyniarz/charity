@@ -1,5 +1,6 @@
 package pl.coderslab.charity.donation;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import pl.coderslab.charity.category.Category;
 import pl.coderslab.charity.institution.Institution;
 
@@ -27,9 +28,10 @@ public class Donation {
     private String street;
     private String city;
     private String zipCode;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
-    private LocalTime pickupHour;
-    private String pickupComment;
+    private LocalTime pickUpHour;
+    private String pickUpComment;
 
     public long getId() {
         return id;
@@ -95,19 +97,19 @@ public class Donation {
         this.pickUpDate = pickUpDate;
     }
 
-    public LocalTime getPickupHour() {
-        return pickupHour;
+    public LocalTime getPickUpHour() {
+        return pickUpHour;
     }
 
-    public void setPickupHour(LocalTime pickupHour) {
-        this.pickupHour = pickupHour;
+    public void setPickUpHour(LocalTime pickUpHour) {
+        this.pickUpHour = pickUpHour;
     }
 
-    public String getPickupComment() {
-        return pickupComment;
+    public String getPickUpComment() {
+        return pickUpComment;
     }
 
-    public void setPickupComment(String pickupComment) {
-        this.pickupComment = pickupComment;
+    public void setPickUpComment(String pickupComment) {
+        this.pickUpComment = pickupComment;
     }
 }
