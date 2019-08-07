@@ -164,6 +164,38 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
       // TODO: get data from inputs and show them in summary
+
+      let quantity = document.querySelector("#quantity").value;
+      let summary = document.querySelectorAll(".summary--text");
+      let categories = document.querySelectorAll(".category:checked");
+
+      let categoryNames = [];
+      categories.forEach(function(category){
+        categoryNames.push(category.parentNode.querySelector(".description").innerText)
+      });
+
+      if(Number(quantity) === 1){
+        summary[0].innerHTML = quantity + " worek z darami w kategoriach:  " + categoryNames.join(", ");
+      } else if(/([^234]$|1\d$)/.test(quantity)){
+        summary[0].innerHTML = quantity + " worków z darami w kategoriach: "  + categoryNames.join(", ");
+      } else if(/[234]$/.test(quantity)){
+        summary[0].innerHTML = quantity + " worki z daranu w kategoriach: "  + categoryNames.join(", ");
+      }
+
+      let charity = document.querySelector(".charity:checked").parentNode.querySelector(".description .title").innerText;
+      summary[1].innerHTML = "Dla fundacji: " + charity;
+
+      let addressLines = document.querySelectorAll("#address li")
+      addressLines[0].innerHTML = document.querySelector("#street").value;
+      addressLines[1].innerHTML = document.querySelector("#city").value;
+      addressLines[2].innerHTML = document.querySelector("#zipCode").value;
+
+      let dateLines = document.querySelectorAll("#date li")
+      dateLines[0].innerHTML = document.querySelector("#date").value;
+      dateLines[1].innerHTML = document.querySelector("#time").value;
+      dateLines[2].innerHTML = document.querySelector("#comment").value;
+
+
     }
 
   }
