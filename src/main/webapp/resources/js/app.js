@@ -163,15 +163,13 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$stepInstructions[0].parentElement.parentElement.hidden = this.currentStep >= 5;
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
-      // TODO: get data from inputs and show them in summary
-
       let quantity = document.querySelector("#quantity").value;
       let summary = document.querySelectorAll(".summary--text");
       let categories = document.querySelectorAll(".category:checked");
 
       let categoryNames = [];
       categories.forEach(function(category){
-        categoryNames.push(category.parentNode.querySelector(".description").innerText)
+        categoryNames.push(category.parentNode.querySelector(".description").innerText);
       });
 
       if(Number(quantity) === 1){
@@ -181,21 +179,19 @@ document.addEventListener("DOMContentLoaded", function() {
       } else if(/[234]$/.test(quantity)){
         summary[0].innerHTML = quantity + " worki z daranu w kategoriach: "  + categoryNames.join(", ");
       }
+      let addressLines = document.querySelectorAll("#address li");
 
-      let charity = document.querySelector(".charity:checked").parentNode.querySelector(".description .title").innerText;
-      summary[1].innerHTML = "Dla fundacji: " + charity;
-
-      let addressLines = document.querySelectorAll("#address li")
       addressLines[0].innerHTML = document.querySelector("#street").value;
       addressLines[1].innerHTML = document.querySelector("#city").value;
       addressLines[2].innerHTML = document.querySelector("#zipCode").value;
+      let dateLines = document.querySelectorAll("#date li");
 
-      let dateLines = document.querySelectorAll("#date li")
       dateLines[0].innerHTML = document.querySelector("#date").value;
       dateLines[1].innerHTML = document.querySelector("#time").value;
       dateLines[2].innerHTML = document.querySelector("#comment").value;
 
-
+      let charity = document.querySelector(".charity:checked").parentNode.querySelector(".description .title").innerText;
+      summary[1].innerHTML = "Dla fundacji: " + charity;
     }
 
   }
