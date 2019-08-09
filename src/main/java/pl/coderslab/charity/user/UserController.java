@@ -27,5 +27,9 @@ public class UserController {
         return "redirect:/";
     }
 
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
+    }
 
 }
