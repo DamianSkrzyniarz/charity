@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-
 <header class="header--main-page">
     <nav class="container container--70">
         <ul class="nav--actions">
@@ -16,7 +18,11 @@
                         <li><a href="#">Profil</a></li>
                         <li><a href="#">Ustawienia</a></li>
                         <li><a href="#">Moje zbiórki</a></li>
-                        <li><a href="#">Wyloguj</a></li>
+                        <form action="<c:url value="/logout"/>" method="post">
+                            <li><input class="button-link" type="submit" value="Wyloguj"></li>
+<%--                            TODO: style button as link--%>
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                        </form>
                     </ul>
                 </li>
             </sec:authorize>
