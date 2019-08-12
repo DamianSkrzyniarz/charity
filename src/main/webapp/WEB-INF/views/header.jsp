@@ -14,16 +14,17 @@
                 <li class="logged-user">
                     Witaj
                     <sec:authentication property="principal.username"/>
-                    <ul class="dropdown">
-                        <li><a href="#">Profil</a></li>
-                        <li><a href="#">Ustawienia</a></li>
-                        <li><a href="#">Moje zbiórki</a></li>
-                        <form action="<c:url value="/logout"/>" method="post">
-                            <li><input class="button-link" type="submit" value="Wyloguj"></li>
-<%--                            TODO: style button as link--%>
+                    <form action="<c:url value="/logout"/>" method="post">
+                        <ul class="dropdown">
+
+                            <li><a href="#">Profil</a></li>
+                            <li><a href="#">Ustawienia</a></li>
+                            <li><a href="#">Moje zbiórki</a></li>
+                            <li><input class="link-button" type="submit" value="Wyloguj"/></li>
+
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                        </form>
-                    </ul>
+                        </ul>
+                    </form>
                 </li>
             </sec:authorize>
         </ul>
