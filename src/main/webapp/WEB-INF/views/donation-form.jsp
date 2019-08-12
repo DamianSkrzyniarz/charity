@@ -176,12 +176,7 @@
                                 Kod pocztowy <form:input id="zipCode" path="zipCode" />
                             </label>
                         </div>
-
-<%--                        <div class="form-group form-group--inline">--%>
-<%--                            <label>--%>
-<%--                                Numer telefonu <input type="phone" name="phone" />--%>
-<%--                            </label>--%>
-<%--                        </div>--%>
+                        
                     </div>
 
                     <div class="form-section--column">
